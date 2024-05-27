@@ -1,6 +1,7 @@
 <template>
     <Head :title="` || ${$page.component}`"/>
-    <h1 class="text-2xl text-red-500"> {{ $page.props.auth.user }} </h1>
+    
+    <Link class="mt-[1400px] block" preserve-scroll>Refresh</Link>
 </template>
 
 <script setup lang="ts">
