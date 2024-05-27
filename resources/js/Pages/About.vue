@@ -1,0 +1,15 @@
+<template>
+    <div>
+        <h1>Username: {{ user }}</h1>
+    </div>
+</template>
+
+<script setup lang="ts">
+    defineProps({
+        user: String
+    })
+</script>
+
+<style scoped>
+
+</style>
