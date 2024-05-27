@@ -1,4 +1,5 @@
 <template>
+    <Head title="|| About"/>
     <div>
         <h1>Username: {{ user }}</h1>
     </div>
@@ -8,9 +9,6 @@
     defineProps({
         user: String
     })
-
-    import Layout from "../Layouts/Layout.vue";
-    defineOptions({ layout: Layout });
 </script>
 
 <style scoped>
