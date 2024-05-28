@@ -5,8 +5,9 @@
                 <div class="space-x-6">
                     <Link :href="route('home')">Home</Link>
                 </div>
-
+        
                 <div class="space-x-6">
+                    <Link :href="route('login')" class="font-bold">Login</Link> 
                     <Link :href="route('register')" class="font-bold">Register</Link>
                 </div>
             </nav>

@@ -33,7 +33,7 @@
             />
             
             <div>
-                <p>Already a user? <a class="text-link" href="#">Login</a></p>
+                <p>Already a user? <Link class="text-link" :href="route('login')">Login</Link></p>
                 <button class="btn w-full my-2 font-bold" :disabled="form.processing">Register</button>
             </div>
 
