@@ -1,7 +1,7 @@
 <template>
     <Head :title="` || ${$page.component}`"/>
     
-    <Link class="mt-[1400px] block" preserve-scroll>Refresh</Link>
+    <h1>Home page</h1>
 </template>
 
 <script setup lang="ts">
