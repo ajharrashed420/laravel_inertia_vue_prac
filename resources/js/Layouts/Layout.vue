@@ -3,15 +3,16 @@
         <header>
             <nav>
                 <div class="space-x-6">
-                    <Link :href="route('home')">Home</Link>
+                    <Link :href="route('home')" :class="{ 'bg-slate-700' : $page.component === 'Home'}" class="nav-link">Home</Link>
                 </div>
                 
-                <div v-if="$page.props.auth.user">
-                    <Link :href="route('logout')" method="post" as="button" type="button" class="font-bold">Logout</Link> 
+                <div v-if="$page.props.auth.user" class="space-x-6">
+                    <Link :href="route('dashboard')" class="font-bold nav-link" :class="{ 'bg-slate-700' : $page.component === 'Dashboard'}">Dashboard</Link> 
+                    <Link :href="route('logout')" method="post" as="button" type="button" class="font-bold nav-link">Logout</Link> 
                 </div>
                 <div v-else class="space-x-6">
-                    <Link :href="route('login')" class="font-bold">Login</Link> 
-                    <Link :href="route('register')" class="font-bold">Register</Link>
+                    <Link :href="route('login')" class="font-bold nav-link" :class="{ 'bg-slate-700' : $page.component === 'Auth/Login'}">Login</Link> 
+                    <Link :href="route('register')" class="font-bold nav-link" :class="{ 'bg-slate-700' : $page.component === 'Auth/Register'}">Register</Link>
                 </div>
             </nav>
         </header>
