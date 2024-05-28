@@ -44,4 +44,16 @@ class AuthController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
+
+
+    public function logout(Request $request) {
+        //Laravel Doc: https://laravel.com/docs/11.x/authentication#logging-out
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect()->route('home');
+    }
 }
