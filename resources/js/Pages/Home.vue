@@ -16,6 +16,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Registration Date</th>
+                <th v-if="can.delete_user">Delete</th>
             </tr>
         </thead>
 
@@ -29,6 +30,7 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ getDate(user.created_at) }}</td>
+                <td v-if="can.delete_user"><button class="rounded-full bg-red-500 h-5 w-5"></button></td>
             </tr>
         </tbody>
     </table>
@@ -47,6 +49,7 @@
     const props = defineProps({
         users: Object,
         searchTerm: String,
+        can: Object,
     });
 
     const search = ref(props.searchTerm);
