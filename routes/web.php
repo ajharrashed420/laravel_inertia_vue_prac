@@ -3,8 +3,9 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Models\User;
 
-Route::inertia('/', 'Home')->name('home');
+Route::inertia('/', 'Home', ['users' => User::paginate(10)])->name('home');
 
 Route::middleware('guest')->group(function() {
     //Registration Routes

@@ -12,7 +12,7 @@
                 <div v-if="$page.props.auth.user" class="space-x-6 flex items-center">
 
                     <img :src="$page.props.auth.user.avatar ? ('/storage/' + $page.props.auth.user.avatar) : '/storage/avatars/default.png'"
-                        alt="avatar" class=" w-10 h-10 rounded-full border-2 border-slate-200">
+                        alt="avatar" class="avatar">
 
                     <Link :href="route('dashboard')" class="font-bold nav-link"
                         :class="{ 'bg-slate-700' : $page.component === 'Dashboard'}">Dashboard</Link>
