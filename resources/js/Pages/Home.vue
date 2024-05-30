@@ -30,7 +30,9 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ getDate(user.created_at) }}</td>
-                <td v-if="can.delete_user"><button class="rounded-full bg-red-500 h-5 w-5"></button></td>
+                <td v-if="can.delete_user">
+                    <button @click="deleteUser(user.id)" class="rounded-full bg-red-500 h-5 w-5"></button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -43,7 +45,7 @@
 <script setup lang="ts">
     import PaginationLinks from "./Components/PaginationLinks.vue";
     import { ref, watch } from "vue";
-    import { router } from "@inertiajs/vue3";
+    import { router, useForm } from "@inertiajs/vue3";
     import { debounce } from "lodash";
     
     const props = defineProps({
@@ -63,6 +65,17 @@
             month: "long",
             day: "numeric",
         });
+
+        const form = useForm({});
+
+        const deleteUser = (id) => {
+            if (confirm("Are you sure you want to move this to trash")) {
+                form.delete(route('delete',{id:id}), {
+                    preserveScroll: true,
+                });
+            }
+        };
+
 </script>
 
 <style scoped>
