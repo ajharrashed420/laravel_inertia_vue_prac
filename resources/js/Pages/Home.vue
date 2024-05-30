@@ -28,15 +28,13 @@
         </tbody>
     </table>
     <!-- pagination links -->
-    <div class="flex justify-between">
-        <div>
-            <Link v-for="link in users.links" :key="link.label" v-html="link.label" :href="link.url" class="p-1 mx-1" :class="{'text-slate-300' : !link.url, 'text-orange-500 font-bold': link.active}"></Link>
-        </div>
-        <p class="text-skate-600 text-sm">Showing {{ users.from }} to {{ users.to }} of {{ users.total }} results</p>
+    <div>
+        <PaginationLinks :paginator="users" />
     </div>
 </template>
 
 <script setup lang="ts">
+    import PaginationLinks from "./Components/PaginationLinks.vue";
     defineProps({
         users: Object,
     });
