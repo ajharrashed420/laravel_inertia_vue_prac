@@ -3,6 +3,11 @@
     <Head :title="` || ${$page.component}`" />
 
     <h1>All Users</h1>
+    <div class="flex justify-end mb-4">
+        <div class="w-1/4">
+            <input type="search" placeholder="Search" v-model="search" />
+        </div>
+    </div>
     <table>
         <thead>
             <tr class="bg-slate-300">
@@ -35,9 +40,18 @@
 
 <script setup lang="ts">
     import PaginationLinks from "./Components/PaginationLinks.vue";
-    defineProps({
+    import { ref, watch } from "vue";
+    import { router } from "@inertiajs/vue3";
+    import { debounce } from "lodash";
+    
+    const props = defineProps({
         users: Object,
+        searchTerm: String,
     });
+
+    const search = ref(props.searchTerm);
+
+    watch(search, debounce((q) => router.get("/", { search: q }, {preserveState: true}), 1000));
 
     //Format Date
     const getDate = (date) =>
